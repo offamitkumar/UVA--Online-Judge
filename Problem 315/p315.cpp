@@ -54,7 +54,7 @@ void articulate(int current = 1 ,int parent=-1){
                 out[current] = min(out[current] , out[itr]);
             }
         }else{
-            out[current] = min(out[current] , in[itr]);
+            out[current] = min(out[current] , in_time[itr]);
         }
     }
     if(parent==-1){
