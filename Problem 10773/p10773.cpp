@@ -42,7 +42,7 @@ int main(void){
     for(int Case{1};Case<=total_case;++Case){
         double displacement,river_speed,boat_speed;
         cin>>displacement>>river_speed>>boat_speed;
-        if(river_speed > boat_speed || boat_speed == 0 || river_speed == 0 /* read question, it also ask if there are present both case */){
+        if(river_speed >= boat_speed || boat_speed == 0 || river_speed == 0 /* read question, it also ask if there are present both case */){
             printf("Case %d: can't determine\n",Case);
             continue;
         }
