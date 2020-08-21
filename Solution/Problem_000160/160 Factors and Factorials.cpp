@@ -26,14 +26,15 @@ signed main(void){
                 f[x]++;
             }
         }
-        cout << n <<"! = ";
-        bool more = false;
+        cout << setw(3) << setfill(' ') << n <<"! =";
+        int x= 1;
         for(int i=0; pr.at(i) <= n; ++i){
-            if(more){
-                cout <<' ';
+            cout << setw(3) << setfill(' ') << f[pr.at(i)];
+            if(x == 15 && pr.at(i+1) <=n){
+                x = 0;
+                cout << '\n' << "      ";
             }
-            more = true;
-            cout << f[pr.at(i)];
+            ++x;
         }
         cout << '\n'; 
     }
