@@ -20,9 +20,9 @@ signed main(void){
             res%=11;
         }
         if(!res){
-            cout <<" is a multiple of 11";
+            cout <<" is a multiple of 11.";
         }else{
-            cout <<" is not a multiple of 11";
+            cout <<" is not a multiple of 11.";
         }
         cout << '\n'; 
     }
