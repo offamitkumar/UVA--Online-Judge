@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int int64_t
+
+bool done = false;
+vector<int>table;
+void pre(string&a){
+    done = true;
+    table.assign(a.size() , 0);
+    table[0]=-1;
+    int j=-1 , i = 0;
+    while(i < (int)a.size()){
+        while(j>=0 && a[i] != a[j]){
+            j = table[j];
+        }
+        ++j;
+        ++i;
+        table[i] = j;
+    }
+}
+bool search(string &a , string &b){
+    if(!done)
+        pre(a);
+    int i=0 , j = 0;
+    while(i < (int)b.size()){
+        while(j >= 0 && b[i] != a[j]){
+            j = table[j];
+        }
+        ++j;
+        ++i;
+        if(j==(int)a.size()){
+            return true;
+            j = table[j];
+        }
+    }
+    return false;
+} 
+signed main(void){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr); 
+    cout.tie(nullptr);
+#ifdef HELL_JUDGE
+    freopen("input","r",stdin);
+    freopen("output","w",stdout);
+#endif
+    int t; cin >> t; 
+    while(t--){
+        done = false;
+        string s; cin >> s; 
+        int x; cin >> x;
+        while(x--){
+            string temp; cin >> temp; 
+            if(search(temp, s)){
+                cout << "y"  << '\n';
+            }else{
+                cout << "n" << '\n';
+            }
+        }
+    }
+    return 0;
+}
